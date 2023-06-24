@@ -10,4 +10,4 @@ By utilizing Java's extensive libraries and frameworks, developers can build a u
 Overall, a Java-based computer system for managing items in wholesale can streamline operations, improve efficiency, and provide accurate and real-time information to support decision-making within the wholesale business.
 
 
-![Screenshot 2023-06-24 162626](https://github.com/Buddhikasampath01/Managing-items-in-wholesale-using-a-computer-system/assets/136577312/ff01d144-580a-49b3-a285-df8c4410bc8c)
+![Screenshot 2023-06-24 162626](https://github.com/Buddhikasampath01/Managing-items-in-wholesale-using-a-computer-system/assets/136577312/4003c80f-e8c3-49f3-9990-64e75bee185c)
