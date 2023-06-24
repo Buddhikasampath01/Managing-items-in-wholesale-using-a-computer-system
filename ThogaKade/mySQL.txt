@@ -1,0 +1,68 @@
+show databases;
+show tables;
+use park;
+
+CREATE TABLE PakingInformationTable(
+index_no INT,
+vehicle_Id varchar(10),
+VehicleName varchar(10),
+arrTime varchar(10),
+depTime varchar(10),
+ownerName varchar(10),
+address varchar(10),
+vColor varchar(10)
+);
+
+DESC PakingInformationTable;
+
+INSERT INTO PakingInformationTable values(1,'WP-1020','Car','10.00','11.00','Nimal','Colombo','Red');
+select * from PakingInformationTable;
+
+CREATE TABLE student(
+studentIndex INT,
+name varchar(10),
+address varchar(10)
+);
+
+DESC student;
+
+NIC,custName,custType,cusAddress,cusMobile
+itemID,itemName, itemPrice, barcodeNo, itemType
+
+CREATE DATABASE test1;
+USE shop;
+CREATE TABLE customer(
+	nic VARCHAR(20),
+	custName VARCHAR(20),
+	custAddress VARCHAR(20),
+	custContactNo INT 
+); 
+CREATE TABLE item(
+	itemID VARCHAR(20),
+	itemName VARCHAR(20),
+	itemPrice VARCHAR(20),
+	barcodeNo INT,
+	itemType VARCHAR(20)
+); 
+
+
+/////////////////////////////////////////////////////////////
+CREATE TABLE vehicle(
+v_num varchar(10),
+v_name varchar(10),
+v_color varchar(10),
+owner varchar(10),
+CONSTRAINT PRIMARY KEY(v_num)
+);
+
+INSERT INTO vehicle values('WP-1020','Car','Red','Nimal');
+INSERT INTO vehicle values('WP-4520','Van','Gray','Bandara');
+
+CREATE TABLE detail(
+indexNum INT,
+v_num varchar(10),
+arrTime varchar(10),
+dipTime varchar(10),
+CONSTRAINT PRIMARY KEY(indexNum),
+CONSTRAINT FOREIGN KEY(v_num) REFERENCES vehicle(v_num)
+);

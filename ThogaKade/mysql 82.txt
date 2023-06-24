@@ -1,0 +1,237 @@
+show databases;
+--
++--------------------+
+| Database           |
++--------------------+
+| ThogaKade          |
+| cmjd80             |
+| cmjdHibernate      |
+| information_schema |
+| mysql              |
+| park               |
+| performance_schema |
+| phpmyadmin         |
+| school             |
+| seconday           |
+| shop               |
+| test               |
++--------------------+
+12 rows in set (0.00 sec)
+=================================================
+use ThogaKade;
+
+-===========================
+SHOW TABLES;
+
+MariaDB [ThogaKade]> SHOW TABLES;
++---------------------+
+| Tables_in_ThogaKade |
++---------------------+
+| Customer            |
+| Item                |
+| OrderDetail         |
+| Orders              |
++---------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [ThogaKade]> 
+============================
+INSERT
+-------
+ INSERT INTO Customer (id,name,address,salary) VALUES('C001','Saman','Colombo',25000);// no
+Query OK, 1 row affected (0.06 sec)
+===================
+INSERT INTO Customer VALUES('C002','Kamal','Panadura',35000);
+Query OK, 1 row affected (0.06 sec)
+===================
+SELECT
+------
+SELECT id,name,address,salary FROM Customer;
++------+----------+-------------+----------+
+| id   | name     | address     | salary   |
++------+----------+-------------+----------+
+| C001 | Saman    | Colombo     | 25000.00 |
+| C002 | Kamal    | Panadura    | 35000.00 |
+| C003 | Somapala | Galle       | 82000.00 |
+| C004 | Siripala | Galle       | 24000.00 |
+| C005 | Jinadasa | Panadura    | 94000.00 |
+| C006 | Sepalika | Kalutara    | 58000.00 |
+| C007 | Jinasena | Ambalangoda | 51000.00 |
+| C008 | Somadasa | Baddegama   | 34000.00 |
+| C009 | Danasiri | Moratuwa    | 29000.00 |
+| C010 | Somasiri | Kandy       | 64000.00 |
++------+----------+-------------+----------+
+10 rows in set (0.00 sec)
+
+=========================================================
+SELECT id,name,address FROM Customer;
++------+----------+-------------+
+| id   | name     | address     |
++------+----------+-------------+
+| C001 | Saman    | Colombo     |
+| C002 | Kamal    | Panadura    |
+| C003 | Somapala | Galle       |
+| C004 | Siripala | Galle       |
+| C005 | Jinadasa | Panadura    |
+| C006 | Sepalika | Kalutara    |
+| C007 | Jinasena | Ambalangoda |
+| C008 | Somadasa | Baddegama   |
+| C009 | Danasiri | Moratuwa    |
+| C010 | Somasiri | Kandy       |
++------+----------+-------------+
+10 rows in set (0.00 sec)
+
+==================================================
+SELECT * FROM Customer;
++------+----------+-------------+----------+
+| id   | name     | address     | salary   |
++------+----------+-------------+----------+
+| C001 | Saman    | Colombo     | 25000.00 |
+| C002 | Kamal    | Panadura    | 35000.00 |
+| C003 | Somapala | Galle       | 82000.00 |
+| C004 | Siripala | Galle       | 24000.00 |
+| C005 | Jinadasa | Panadura    | 94000.00 |
+| C006 | Sepalika | Kalutara    | 58000.00 |
+| C007 | Jinasena | Ambalangoda | 51000.00 |
+| C008 | Somadasa | Baddegama   | 34000.00 |
+| C009 | Danasiri | Moratuwa    | 29000.00 |
+| C010 | Somasiri | Kandy       | 64000.00 |
++------+----------+-------------+----------+
+====================================================
+SELECT * FROM Customer WHERE id='C001';
++------+-------+---------+----------+
+| id   | name  | address | salary   |
++------+-------+---------+----------+
+| C001 | Saman | Colombo | 25000.00 |
++------+-------+---------+----------+
+
+====================================================
+SELECT * FROM Customer WHERE address="Galle";
++------+----------+---------+----------+
+| id   | name     | address | salary   |
++------+----------+---------+----------+
+| C003 | Somapala | Galle   | 82000.00 |
+| C004 | Siripala | Galle   | 24000.00 |
++------+----------+---------+----------+
+
+====================================================
+SELECT id,name FROM Customer WHERE id="C001";
++------+-------+
+| id   | name  |
++------+-------+
+| C001 | Saman |
++------+-------+
+
+==================================================== AND===============
+SELECT * FROM Customer WHERE address='Galle' AND name='Somapala';
++------+----------+---------+----------+
+| id   | name     | address | salary   |
++------+----------+---------+----------+
+| C003 | Somapala | Galle   | 82000.00 |
++------+----------+---------+----------+
+
+====================================================
+SELECT * FROM Customer WHERE address='Galle' && name='Somapala';
++------+----------+---------+----------+
+| id   | name     | address | salary   |
++------+----------+---------+----------+
+| C003 | Somapala | Galle   | 82000.00 |
++------+----------+---------+----------+
+
+==================================================== OR ==================
+SELECT * FROM Customer WHERE address='Galle' OR name='Somapala';
++------+----------+---------+----------+
+| id   | name     | address | salary   |
++------+----------+---------+----------+
+| C003 | Somapala | Galle   | 82000.00 |
+| C004 | Siripala | Galle   | 24000.00 |
++------+----------+---------+----------+
+
+====================================================
+SELECT * FROM Customer WHERE address='Galle' || name='Somapala';
++------+----------+---------+----------+
+| id   | name     | address | salary   |
++------+----------+---------+----------+
+| C003 | Somapala | Galle   | 82000.00 |
+| C004 | Siripala | Galle   | 24000.00 |
++------+----------+---------+----------+
+
+==================================================== DELETE ====================
+DELETE FROM Customer; // NOT TO USE
+-----------
++------+----------+-------------+----------+
+| id   | name     | address     | salary   |
++------+----------+-------------+----------+
+| C001 | Saman    | Colombo     | 25000.00 |
+| C002 | Kamal    | Panadura    | 35000.00 |
+
+
+DELETE FROM Customer WHERE id='C001';
+
+Query OK, 1 row affected (0.07 sec)
+
++------+----------+-------------+----------+
+| id   | name     | address     | salary   |
++------+----------+-------------+----------+
+| C002 | Kamal    | Panadura    | 35000.00 |
+| C003 | Somapala | Galle       | 82000.00 |
+
+====================================================
+UPDATE Customer SET name='nimal';// Not to use
+
+| id   | name     | address     | salary   |
++------+----------+-------------+----------+
+| C002 | Kamal    | Panadura    | 35000.00 |
+| C003 | Somapala | Galle       | 82000.00 |
+| C004 | Siripala | Galle       | 24000.00 |
+| C005 | Jinadasa | Panadura    | 94000.00 |
+| C006 | Sepalika | Kalutara    | 58000.00 |
+| C007 | Jinasena | Ambalangoda | 51000.00 |
+| C008 | Somadasa | Baddegama   | 34000.00 |
+| C009 | Danasiri | Moratuwa    | 29000.00 |
+| C010 | Somasiri | Kandy       | 64000.00 |
+
++------+-------+-------------+----------+
+| id   | name  | address     | salary   |
++------+-------+-------------+----------+
+| C002 | nimal | Panadura    | 35000.00 |
+| C003 | nimal | Galle       | 82000.00 |
+| C004 | nimal | Galle       | 24000.00 |
+| C005 | nimal | Panadura    | 94000.00 |
+| C006 | nimal | Kalutara    | 58000.00 |
+| C007 | nimal | Ambalangoda | 51000.00 |
+| C008 | nimal | Baddegama   | 34000.00 |
+| C009 | nimal | Moratuwa    | 29000.00 |
+| C010 | nimal | Kandy       | 64000.00 |
++------+-------+-------------+----------+
+
+
+
+====================================================
+
+UPDATE Customer SET name='bandaranayake' WHERE id='C002';
+Rows matched: 1  Changed: 1  Warnings: 0
+
++------+---------------+-------------+----------+
+| id   | name          | address     | salary   |
++------+---------------+-------------+----------+
+| C002 | bandaranayake | Panadura    | 35000.00 |
+| C003 | nimal         | Galle       | 82000.00 |
+| C004 | nimal         | Galle       | 24000.00 |
+| C005 | nimal         | Panadura    | 94000.00 |
+| C006 | nimal         | Kalutara    | 58000.00 |
+| C007 | nimal         | Ambalangoda | 51000.00 |
+| C008 | nimal         | Baddegama   | 34000.00 |
+| C009 | nimal         | Moratuwa    | 29000.00 |
+| C010 | nimal         | Kandy       | 64000.00 |
++------+---------------+-------------+----------+
+====================================================
+
+
+
+
+
+
+
+
+
